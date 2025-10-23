@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renata Dias | Enfermagem Domiciliar</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-stethoscope"></i>
+        </div>
+        <div>
+          <h1>Renata Dias</h1>
+          <p class="tagline">Enfermagem Domiciliar & Cuidados Especializados</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab('agendamento')">
+        <i class="fas fa-calendar-check"></i>
+        Agendamento
+      </button>
+      <button class="tab-button" onclick="showTab('servicos')">
+        <i class="fas fa-list-alt"></i>
+        Serviços e Preços
+      </button>
+    </div>
+
+    <div id="agendamento" class="tab-content active">
+      <h3>Agende seu atendimento em domicílio</h3>
+      <form action="https://formspree.io/f/mzzjlagn" method="POST">
+        <div class="form-group">
+          <input type="text" name="nome" placeholder="Nome completo" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Seu e-mail" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" name="telefone" placeholder="Telefone para contato" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="endereco" placeholder="Endereço para a visita" required>
+        </div>
+
+        <div class="form-group">
+          <label>O atendimento é para você mesmo?</label>
+          <select name="para_voce" onchange="togglePacienteField(this)">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+          </select>
+        </div>
+        
+        <div class="form-group" id="nome_paciente_container" style="display:none;">
+          <input type="text" id="nome_paciente" name="nome_paciente" placeholder="Nome do paciente">
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de atendimento</label>
+          <select name="tipo_atendimento" required>
+            <option value="">Selecione</option>
+            <option>Pós-parto</option>
+            <option>Pós-operatório</option>
+            <option>Paciente idoso</option>
+            <option>Paciente gestante</option>
+            <option>Paciente acamado</option>
+            <option>Paciente com mobilidade reduzida</option>
+            <option>Paciente PCD</option>
+            <option>Outros</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input type="date" name="data" required>
+          </div>
+          <div class="form-group">
+            <input type="time" name="horario" required>
+          </div>
+        </div>
+
+        <button type="submit">
+          <i class="fas fa-paper-plane"></i>
+          Confirmar Agendamento
+        </button>
+      </form>
+
+      <div class="social-buttons">
+        <a href="https://wa.me/5514981066366?text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20mais%20informações" class="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          Falar pelo WhatsApp
+        </a>
+        <a href="https://instagram.com/enfermeira.renatadias" class="instagram">
+          <i class="fab fa-instagram"></i>
+          Ver Instagram
+        </a>
+      </div>
+    </div>
+
+    <div id="servicos" class="tab-content">
+      <h3>Serviços e Preços</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Serviço</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Realização ou troca de curativos</td>
+              <td>R$ 50,00</td>
+            </tr>
+            <tr>
+              <td>Auxílio no banho + curativo</td>
+              <td>R$ 100,00</td>
+            </tr>
+            <tr>
+              <td>Aplicação de medicação intramuscular</td>
+              <td>R$ 50,00</td>
+            </tr>
+            <tr>
+              <td>Administração de medicação endovenosa</td>
+              <td>R$ 100,00</td>
+            </tr>
+            <tr>
+              <td>Acompanhamento domiciliar diurno (12h)</td>
+              <td>R$ 180,00</td>
+            </tr>
+            <tr>
+              <td>Acompanhamento domiciliar noturno (12h)</td>
+              <td>R$ 200,00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="info-box">
+        <h4><i class="fas fa-info-circle"></i> Informações Adicionais</h4>
+        <p>Os valores podem variar de acordo com a complexidade do caso e localização. Entre em contato para orçamentos personalizados.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
