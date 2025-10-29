@@ -1,303 +1,373 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enfermeira Renata Flauzina | Cuidados Domiciliares</title>
-  <meta name="description" content="Enfermeira Renata Flauzina - COREN/SP 0095224. Mais de 25 anos de experiência em cuidados domiciliares especializados.">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enfermeira Renata Flauzina | Cuidados Domiciliares</title>
+    <meta name="description" content="Enfermeira Renata Flauzina - COREN/SP 0095224. Mais de 25 anos de experiência em cuidados domiciliares especializados.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <header class="main-header">
-      <div class="logo">
-        <div class="logo-icon">
-          <i class="fas fa-stethoscope"></i>
-        </div>
-        <div class="logo-text">
-          <h1>Renata Flauzina</h1>
-          <p class="tagline">Enfermeira | COREN/SP: 0095224</p>
-        </div>
-      </div>
-    </header>
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Renata Flauzina</h1>
+                    <p class="tagline">Enfermeira | COREN/SP: 0095224</p>
+                </div>
+            </div>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h2>Cuidado Humanizado no Conforto do seu Lar</h2>
-          <p>Enfermeira com mais de 25 anos de experiência unindo conhecimento técnico ao acolhimento humano</p>
-        </div>
-      </div>
-    </section>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Cuidado Humanizado no Conforto do seu Lar</h2>
+                    <p>Enfermeira com mais de 25 anos de experiência unindo conhecimento técnico ao acolhimento humano</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- Tabs Navigation -->
-    <div class="tabs">
-      <button class="tab-button active" onclick="showTab('agendamento')">
-        <i class="fas fa-calendar-check"></i>
-        Agendamento
-      </button>
-      <button class="tab-button" onclick="showTab('servicos')">
-        <i class="fas fa-list-alt"></i>
-        Serviços e Preços
-      </button>
-      <button class="tab-button" onclick="showTab('sobre')">
-        <i class="fas fa-user"></i>
-        Sobre Mim
-      </button>
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('agendamento')">
+                <i class="fas fa-calendar-check"></i>
+                Agendamento
+            </button>
+            <button class="tab-button" onclick="showTab('servicos')">
+                <i class="fas fa-list-alt"></i>
+                Serviços e Preços
+            </button>
+            <button class="tab-button" onclick="showTab('sobre')">
+                <i class="fas fa-user"></i>
+                Sobre Mim
+            </button>
+        </div>
+
+        <!-- Conteúdo das Abas -->
+        <div class="tab-content-container">
+            <!-- Aba Agendamento -->
+            <div id="agendamento" class="tab-content active">
+                <h3>Agende seu atendimento em domicílio</h3>
+                <form action="https://forms.prce.io/f/mzzjlagn" method="POST" class="booking-form" id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="nome" placeholder="Nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Seu e-mail" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" name="telefone" placeholder="Telefone para contato" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="endereco" placeholder="Endereço para a visita" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>O atendimento é para você mesmo?</label>
+                        <select name="para_voce" id="para_voce">
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="nome_paciente_container" style="display:none;">
+                        <input type="text" id="nome_paciente" name="nome_paciente" placeholder="Nome do paciente">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo de atendimento</label>
+                        <select name="tipo_atendimento" id="tipo_atendimento" required>
+                            <option value="">Selecione</option>
+                            <option value="Pós-parto">Pós-parto</option>
+                            <option value="Pós-operatório">Pós-operatório</option>
+                            <option value="Paciente idoso">Paciente idoso</option>
+                            <option value="Paciente gestante">Paciente gestante</option>
+                            <option value="Paciente acamado">Paciente acamado</option>
+                            <option value="Paciente com mobilidade reduzida">Paciente com mobilidade reduzida</option>
+                            <option value="Paciente PCD">Paciente PCD</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Data preferencial</label>
+                            <input type="date" name="data" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Horário preferencial</label>
+                            <input type="time" name="horario" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mensagem adicional (opcional)</label>
+                        <textarea name="mensagem" placeholder="Descreva brevemente suas necessidades..." rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Confirmar Agendamento
+                    </button>
+                </form>
+
+                <div class="whatsapp-confirm-container">
+                    <p>Após enviar o formulário, confirme seu agendamento pelo WhatsApp:</p>
+                    <button class="whatsapp-confirm" id="whatsappConfirm">
+                        <i class="fab fa-whatsapp"></i>
+                        Acabei de agendar pelo site!
+                    </button>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <strong>Telefone</strong>
+                        <span>(14) 98106-6366</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Área de Atendimento</strong>
+                        <span>Bauru/SP e Região</span>
+                    </div>
+                </div>
+
+                <div class="social-buttons">
+                    <a href="https://wa.me/5514981066366?text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20mais%20informações" class="whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        Falar pelo WhatsApp
+                    </a>
+                    <a href="https://instagram.com/enfermeira.renatadias" class="instagram">
+                        <i class="fab fa-instagram"></i>
+                        Ver Instagram
+                    </a>
+                    <a href="mailto:renatadiasenfermagem@gmail.com" class="email">
+                        <i class="fas fa-envelope"></i>
+                        Enviar E-mail
+                    </a>
+                </div>
+            </div>
+
+            <!-- Aba Serviços -->
+            <div id="servicos" class="tab-content">
+                <h3>Serviços e Preços</h3>
+                <div class="services-grid">
+                    <!-- Serviços básicos -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-band-aid"></i>
+                        </div>
+                        <h4>Curativos</h4>
+                        <p>Realização ou troca de curativos</p>
+                        <div class="service-price">R$ 50,00</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-bath"></i>
+                        </div>
+                        <h4>Banho + Curativo</h4>
+                        <p>Auxílio no banho completo</p>
+                        <div class="service-price">R$ 100,00</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-syringe"></i>
+                        </div>
+                        <h4>Medicação IM</h4>
+                        <p>Aplicação intramuscular</p>
+                        <div class="service-price">R$ 50,00</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h4>Medicação EV</h4>
+                        <p>Administração endovenosa</p>
+                        <div class="service-price">R$ 100,00</div>
+                    </div>
+
+                    <!-- Novos serviços -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <h4>Passagem/Retirada de Sonda</h4>
+                        <p>Procedimento especializado</p>
+                        <div class="service-price">R$ 50,00</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h4>Acompanhamento em Internação</h4>
+                        <p>12 horas de acompanhamento</p>
+                        <div class="service-price">R$ 180,00</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h4>Acompanhamento em Consulta</h4>
+                        <p>Incluindo transporte até a consulta</p>
+                        <div class="service-price">R$ 100,00</div>
+                    </div>
+
+                    <!-- Pacotes promocionais -->
+                    <div class="service-card promo">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4>Pacote Mensal: 20 Acompanhamentos</h4>
+                        <p>20 acompanhamentos de 8 horas no mês</p>
+                        <div class="service-price">
+                            <span class="original-price">R$ 3.200,00</span>
+                            <span class="promo-price">R$ 2.500,00</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card promo">
+                        <div class="service-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h4>Pacote Mensal: 8 Acompanhamentos</h4>
+                        <p>8 acompanhamentos de 12 horas no mês</p>
+                        <div class="service-price">
+                            <span class="original-price">R$ 1.600,00</span>
+                            <span class="promo-price">R$ 1.200,00</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card promo">
+                        <div class="service-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h4>Pacote Semanal: 12 Horas</h4>
+                        <p>12 horas semanais de acompanhamento</p>
+                        <div class="service-price">
+                            <span class="original-price">R$ 720,00</span>
+                            <span class="promo-price">R$ 600,00</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h4>Acompanhamento Diurno</h4>
+                        <p>Cuidado por 12 horas (dia)</p>
+                        <div class="service-price">R$ 180,00</div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h4>Acompanhamento Noturno</h4>
+                        <p>Cuidado por 12 horas (noite)</p>
+                        <div class="service-price">R$ 200,00</div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-info-circle"></i> Informações Importantes</h4>
+                    <p>Para outros serviços entre em contato através do WhatsApp (14) 98106-6366 ou envie um e-mail para renatadiasenfermagem@gmail.com</p>
+                </div>
+            </div>
+
+            <!-- Aba Sobre -->
+            <div id="sobre" class="tab-content">
+                <h3>Sobre Mim</h3>
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="profile-section">
+                            <img src="fotorenata.jpg" alt="Enfermeira Renata Flauzina" class="about-profile-img">
+                            <div class="profile-info">
+                                <h4>Renata Flauzina</h4>
+                                <p class="specialization">Enfermeira | COREN/SP: 0095224</p>
+                            </div>
+                        </div>
+
+                        <div class="about-description">
+                            <p><strong>Enfermeira formada pela Universidade do Sagrado Coração com mais de 25 anos de experiência.</strong></p>
+
+                            <p>Meu foco é unir o conhecimento técnico ao acolhimento humano, garantindo que cada paciente receba um cuidado de excelência, com clareza, segurança e atenção plena.</p>
+
+                            <div class="highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Formada em Enfermagem e Obstetrícia</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-award"></i>
+                                    <span>Mais de 25 anos de experiência</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Atendimento humanizado e personalizado</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-home"></i>
+                                    <span>Cuidados domiciliares especializados</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Enfermeira Renata Flauzina</h4>
+                    <p>Cuidados domiciliares com excelência e humanização</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/5514981066366" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://instagram.com/enfermeira.renatadias" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:renatadiasenfermagem@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> (14) 98106-6366</p>
+                    <p><i class="fas fa-envelope"></i> renatadiasenfermagem@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bauru/SP e Região</p>
+                </div>
+                <div class="footer-registry">
+                    <h5>Registro Profissional</h5>
+                    <p>COREN/SP: 0095224</p>
+                    <p>Enfermeira - Universidade do Sagrado Coração</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Enfermeira Renata Flauzina. Todos os direitos reservados.</p>
+            </div>
+        </footer>
     </div>
 
-    <!-- Conteúdo das Abas -->
-    <div class="tab-content-container">
-      <!-- Aba Agendamento -->
-      <div id="agendamento" class="tab-content active">
-        <h3>Agende seu atendimento em domicílio</h3>
-        <form action="https://formspree.io/f/mzzjlagn" method="POST" class="booking-form">
-          <div class="form-row">
-            <div class="form-group">
-              <input type="text" name="nome" placeholder="Nome completo" required>
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Seu e-mail" required>
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <input type="tel" name="telefone" placeholder="Telefone para contato" required>
-            </div>
-            <div class="form-group">
-              <input type="text" name="endereco" placeholder="Endereço para a visita" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>O atendimento é para você mesmo?</label>
-            <select name="para_voce" onchange="togglePacienteField(this)">
-              <option value="sim">Sim</option>
-              <option value="nao">Não</option>
-            </select>
-          </div>
-          
-          <div class="form-group" id="nome_paciente_container" style="display:none;">
-            <input type="text" id="nome_paciente" name="nome_paciente" placeholder="Nome do paciente">
-          </div>
-
-          <div class="form-group">
-            <label>Tipo de atendimento</label>
-            <select name="tipo_atendimento" required>
-              <option value="">Selecione</option>
-              <option>Pós-parto</option>
-              <option>Pós-operatório</option>
-              <option>Paciente idoso</option>
-              <option>Paciente gestante</option>
-              <option>Paciente acamado</option>
-              <option>Paciente com mobilidade reduzida</option>
-              <option>Paciente PCD</option>
-              <option>Outros</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Data preferencial</label>
-              <input type="date" name="data" required>
-            </div>
-            <div class="form-group">
-              <label>Horário preferencial</label>
-              <input type="time" name="horario" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Mensagem adicional (opcional)</label>
-            <textarea name="mensagem" placeholder="Descreva brevemente suas necessidades..." rows="3"></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">
-            <i class="fas fa-paper-plane"></i>
-            Confirmar Agendamento
-          </button>
-        </form>
-
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <div>
-              <strong>Telefone</strong>
-              <span>(14) 98106-6366</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <strong>Área de Atendimento</strong>
-              <span>Bauru/SP e Região</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="social-buttons">
-          <a href="https://wa.me/5514981066366?text=Olá,%20vim%20do%20site%20e%20gostaria%20de%20mais%20informações" class="whatsapp">
-            <i class="fab fa-whatsapp"></i>
-            Falar pelo WhatsApp
-          </a>
-          <a href="https://instagram.com/enfermeira.renatadias" class="instagram">
-            <i class="fab fa-instagram"></i>
-            Ver Instagram
-          </a>
-          <a href="mailto:renatadiasenfermagem@gmail.com" class="email">
-            <i class="fas fa-envelope"></i>
-            Enviar E-mail
-          </a>
-        </div>
-      </div>
-
-      <!-- Aba Serviços -->
-      <div id="servicos" class="tab-content">
-        <h3>Serviços e Preços</h3>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-band-aid"></i>
-            </div>
-            <h4>Curativos</h4>
-            <p>Realização ou troca de curativos</p>
-            <div class="service-price">R$ 50,00</div>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-bath"></i>
-            </div>
-            <h4>Banho + Curativo</h4>
-            <p>Auxílio no banho completo</p>
-            <div class="service-price">R$ 100,00</div>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-syringe"></i>
-            </div>
-            <h4>Medicação IM</h4>
-            <p>Aplicação intramuscular</p>
-            <div class="service-price">R$ 50,00</div>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-tint"></i>
-            </div>
-            <h4>Medicação EV</h4>
-            <p>Administração endovenosa</p>
-            <div class="service-price">R$ 100,00</div>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-sun"></i>
-            </div>
-            <h4>Acompanhamento Diurno</h4>
-            <p>Cuidado por 12 horas (dia)</p>
-            <div class="service-price">R$ 180,00</div>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-moon"></i>
-            </div>
-            <h4>Acompanhamento Noturno</h4>
-            <p>Cuidado por 12 horas (noite)</p>
-            <div class="service-price">R$ 200,00</div>
-          </div>
-        </div>
-        
-        <div class="info-box">
-          <h4><i class="fas fa-info-circle"></i> Informações Importantes</h4>
-          <p> Para outros serviços entre em contato através do whatsapp (14) 98106-6366 ou envie um e-mail para renatadiasenfermagem@gmail.com</p>
-        </div>
-      </div>
-
-      <!-- Aba Sobre -->
-      <div id="sobre" class="tab-content">
-        <h3>Sobre Mim</h3>
-        <div class="about-content">
-          <div class="about-text">
-            <div class="profile-section">
-              <img src="fotorenata.jpg" alt="Enfermeira Renata Flauzina" class="about-profile-img">
-              <div class="profile-info">
-                <h4>Renata Flauzina</h4>
-                <p class="specialization">Enfermeira | COREN/SP: 0095224</p>
-              </div>
-            </div>
-            
-            <div class="about-description">
-              <p><strong>Enfermeira formada pela Universidade do Sagrado Coração com mais de 25 anos de experiência.</strong></p>
-              
-              <p>Meu foco é unir o conhecimento técnico ao acolhimento humano, garantindo que cada paciente receba um cuidado de excelência, com clareza, segurança e atenção plena.</p>
-              
-              <div class="highlights">
-                <div class="highlight-item">
-                  <i class="fas fa-graduation-cap"></i>
-                  <span>Formada em Enfermagem e Obstetrícia</span>
-                </div>
-                <div class="highlight-item">
-                  <i class="fas fa-award"></i>
-                  <span>Mais de 25 anos de experiência</span>
-                </div>
-                <div class="highlight-item">
-                  <i class="fas fa-heart"></i>
-                  <span>Atendimento humanizado e personalizado</span>
-                </div>
-                <div class="highlight-item">
-                  <i class="fas fa-home"></i>
-                  <span>Cuidados domiciliares especializados</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-      <div class="footer-content">
-        <div class="footer-info">
-          <h4>Enfermeira Renata Flauzina</h4>
-          <p>Cuidados domiciliares com excelência e humanização</p>
-          <div class="footer-social">
-            <a href="https://wa.me/5514981066366" class="social-link">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://instagram.com/enfermeira.renatadias" class="social-link">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="mailto:renatadiasenfermagem@gmail.com" class="social-link"></a>
-              <i class="fas fa-envelope"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-contact">
-          <p><i class="fas fa-phone"></i> (14) 98106-6366</p>
-          <p><i class="fas fa-envelope"></i> renatadiasenfermagem@gmail.com</p>
-          <p><i class="fas fa-map-marker-alt"></i> Bauru/SP e Região</p>
-        </div>
-        <div class="footer-registry">
-          <h5>Registro Profissional</h5>
-          <p>COREN/SP: 0095224</p>
-          <p>Enfermeira - Universidade do Sagrado Coração</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Enfermeira Renata Flauzina. Todos os direitos reservados.</p>
-      </div>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-</html>
+                  </html>
